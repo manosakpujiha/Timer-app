@@ -4,7 +4,7 @@ const resetBtn = document.querySelector('#reset-btn');
 const pause = document.querySelector('#pause');
 const progressBar = document.querySelector('#progress-bar');
 let intervalId;
-let defaultTime;
+let defaultTime =60;
 let currentTime;
 
 time.addEventListener('input', (e) => defaultTime = e.target.value)
@@ -20,8 +20,7 @@ function startTimer() {
         intervalId = setInterval(() => {
             if (Number(time.value) > 0) {
                 time.value = currentTime--;
-                let full = time.value;
-                progressBar.style.width = `${currentTime  / defaultTime * 100}%`;
+                progressBar.style.width = `${time.value  / defaultTime * 100}%`;
             } else {
                 clearInterval(intervalId);    
             }
@@ -31,7 +30,7 @@ function startTimer() {
 
 function resetTimer() {
     progressBar.style.color = 'blue';
-    currentTime = defaultTime;
+    time.value = defaultTime;
     progressBar.style.width = `${100}%`;
     clearInterval(intervalId);
     intervalId = undefined;
