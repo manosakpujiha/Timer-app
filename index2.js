@@ -9,36 +9,41 @@ const state = {
     currentTime: 0,
 }
 const methods = {
-    startTimer() {
-        state.progressBar.style.color = 'blue';
-        state.currentTime = Number(state.time.value);
+    run ({time, btn, resetBtn, pause}) {
+        time.addEventListener('input', (e) => state.defaultTime = e.target.value);
+        btn.addEventListener('click', () => methods.startTimer(state));
+        resetBtn.addEventListener('click', () => methods.resetTimer(state));
+        pause.addEventListener('click', () => methods.pauseTimer(state));
+    },
+    startTimer({defaultTime, currentTime, progressBar, time, intervalId}) {
+        progressBar.style.color = 'blue';
+        currentTime = Number(time.value);
         if (state.intervalId === undefined) {
             state.intervalId = setInterval(() => {
-                if (Number(state.time.value) > 0) {
-                    state.time.value = state.currentTime--;
-                    state.progressBar.style.width = `${state.time.value  / state.defaultTime * 100}%`;
+                if (Number(time.value) > 0) {
+                    time.value = currentTime--;
+                    progressBar.style.width = `${time.value  / defaultTime * 100}%`;
                 } else {
                     clearInterval(state.intervalId);    
                 }
             }, 1000);
         } 
     }, 
-    pauseTimer() {
-        state.progressBar.style.color = 'gold';
-        state.progressBar.classList.add("pause");
+    pauseTimer({progressBar}) {
+        progressBar.style.color = 'gold';
+        progressBar.classList.add("pause");
         clearInterval(state.intervalId);
         state.intervalId = undefined;
-        console.log('interval cleared, Id=', state.intervalId);
+        console.log('paused');
     },
-    resetTimer() {
-        state.progressBar.style.color = 'blue';
-        state.time.value = state.defaultTime;
-        state.progressBar.style.width = `${100}%`;
+    resetTimer({progressBar, time, defaultTime}) {
+        console.log('reset')
+        progressBar.style.color = 'blue';
+        time.value = defaultTime;
+        progressBar.style.width = `${100}%`;
         clearInterval(state.intervalId);
         state.intervalId = undefined;
     },
 }
-state.time.addEventListener('input', (e) => state.defaultTime = e.target.value);
-state.btn.addEventListener('click', methods.startTimer);
-state.resetBtn.addEventListener('click', methods.resetTimer);
-state.pause.addEventListener('click', methods.pauseTimer);
+
+methods.run(state);
