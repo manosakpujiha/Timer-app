@@ -5,15 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="./style.css"> -->
 </head>
 <body>
-
-    <h1>hello</h1>
-    <input title="duration" name="duration" id="duration">
-    <button type="button" id="start" value="6">Start</button>
-    <button  type="button" id="pause">pause</button>
-
-
-    <script src="./index.js"></script>
+    <h1 id="title">Timer App</h1>
+    <div class="canvas center-screen">
+        <svg id="ring" width="400px" height="400px">
+            <circle
+                r='90'
+                cx='200'
+                cy='200'
+                stroke="green"
+                fill="transparent"
+                stroke-width="15"
+                transform="rotate(-90 200 200)"
+            />
+        </svg>
+        <div id="controls">
+            <input title="duration" name="duration" id="duration" value="30">
+            <button type="button" id="start" value="6">Play
+                <i class="fa-solid fa-play"></i>
+            </button>
+            <button  type="button" id="pause">Pause
+                <i class="fa-solid fa-pause"></i>
+            </button>
+        </div>
+    </div>
+    <script type="module" src="./index.js"></script>
 </body>
 </html>

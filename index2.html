@@ -5,29 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        #progress-bar{
-            background-color: blue;
+        .progress-bar{
+            background-color: red;
             height:24px;
             width:100%;
-            color: blue;
+            color: red;
             text-align: center;
         }
-
-        .w3-border {
+        .progress-bar-border {
             border: 1px solid red;
         }
+        .pause{
+            background-color: rgb(205, 240, 6);
+            color: red;
+        }
+        .play{
+            background-color: rgb(6, 240, 64);
+            color:  rgb(6, 240, 64);
+        }
     </style>
-
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello</h1>
-    <input id="time" title="time" value="60" type="number">
-    <button type="button" title="start-btn" id="btn">Start Timer</button>
+    <h1>Countdown Timer</h1>
+    <input id="input-btn" title="time" value="60" type="number">
+    <button type="button" title="start-btn" id="start-btn">Start Timer</button>
     <button type="button" title="reset-btn" id="reset-btn">Reset</button>
-    <button  type="button" id="pause">pause</button>
-    <div class="w3-border">
-        <div id="progress-bar">Timer Paused</div>
+    <button  type="button" id="pause-btn">pause</button>
+    <div class="progress-bar-border">
+        <div class="progress-bar">Timer Paused</div>
     </div>
     <script src="./index2.js"></script>
 </body>

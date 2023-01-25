@@ -1,0 +1,49 @@
+#title {
+    text-align: center;
+    background-color: red;
+}
+.canvas {
+    width: 90vw;
+    height: 90vh;
+    margin-top: 100px;
+    margin: auto;
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+    z-index: 0;
+}
+#ring {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    text-align: center;
+    z-index: 1;
+    /* background-color: orange; */
+    /* display:none; */
+}
+#controls {
+    z-index: 2;
+    width: 200px;
+    height: 30px;
+    position: relative;
+    left: -570px;
+    background-color: blue;
+    /* display:none; */
+}
+#duration {
+    border: none;
+    width: 240px;
+    font-size: 90px;
+    text-align: center;
+    color: green;
+    background-color: yellow;
+    /* display:none; */
+}
+button {
+    background-color: transparent; 
+    border: none;
+    font-size: 30px;
+}
